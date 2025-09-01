@@ -1,3 +1,9 @@
 import { Routes } from '@angular/router';
 
-export const routes: Routes = [];
+import { DocsViewerComponent } from './components/viewer';
+import { DocsListComponent } from './components/docs-list/component';
+
+export const routes: Routes = [
+  { path: '', component: DocsListComponent },
+  { path: 'doc/:id', component: DocsViewerComponent },
+];

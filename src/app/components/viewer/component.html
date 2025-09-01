@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="panel">
+    <a routerLink="">Назад</a>
+
+    <div class="annotations-block">
+      <p>Аннотации</p>
+
+      <button [disabled]="!hasActiveAnnotation()" (click)="deleteSelected()">Удалить</button>
+
+      <button (click)="addAnnotation()">Добавить</button>
+    </div>
+
+    <div class="actions">
+      <p class="zoom">{{ zoom() }}%</p>
+
+      <button class="button" (click)="zoomDown()" [disabled]="!hasPrevZoomStage()">-</button>
+
+      <button class="button" (click)="zoomUp()" [disabled]="!hasNextZoomStage()">+</button>
+
+      <button class="button" (click)="saveAnnotations()">Сохранить</button>
+
+      <button class="button" (click)="loadAnnotations()">Загрузить</button>
+    </div>
+  </div>
+
+  <div class="content" #content [class.annotation-mode]="addAnnotationMode()">
+    @for (page of pages(); track page.number) {
+    <div class="img-container" [style.margin]="margin() + 'px auto'">
+      <doc-page
+        [size]="zoom()"
+        [page]="page"
+        #page
+        [addAnnotation]="addAnnotationMode()"
+        (annotationAdditionCompleted)="annotationAdditionCompleted()"
+        (selectedOnPage)="updateSelectedState(page, $event)"
+      ></doc-page>
+    </div>
+    }
+  </div>
+</div>

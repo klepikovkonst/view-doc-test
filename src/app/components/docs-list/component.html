@@ -1,0 +1,9 @@
+<section>
+  <h1>Список документов</h1>
+
+  @for (doc of docs(); track doc.id) {
+  <div class="doc-container">
+    <a routerLink="doc/{{ doc.id }}">{{ doc.name }}</a>
+  </div>
+  }
+</section>

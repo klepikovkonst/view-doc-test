@@ -1,0 +1,12 @@
+<div class="img-wrapper">
+  <img
+    src="{{ page().imageUrl }}"
+    alt="{{ page().number }}"
+    [style.width]="width() + 'px'"
+    [style.height]="height() + 'px'"
+    #img
+    (load)="init()"
+  />
+</div>
+
+<ng-container #container></ng-container>

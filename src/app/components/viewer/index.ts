@@ -1,0 +1,1 @@
+export { DocsViewerComponent } from './component';
