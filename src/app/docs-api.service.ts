@@ -36,6 +36,7 @@ export class DocsApiService {
 
   saveAnnotationToDoc(docId: number, annotations: AnnotationModel[]): void {
     localStorage.setItem(`doc${docId}Annotations`, JSON.stringify(annotations));
+    console.log(annotations);
   }
 
   getAnnotationsFromDoc(docId: number): Observable<AnnotationModel[]> {
